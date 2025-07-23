@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f4f4f4;
+      }
+
+      .__dv_bg_red {
+        background-color: #ff0000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- <h1>An extraordinary website :)</h1> -->
+
+    <div class="main-website-content" style="height: 20000px;">
+      <h2>Our Services</h2>
+      <p>
+        We provide the best service possible. Our team works around the clock to
+        ensure you have the best experience. We believe in quality, efficiency,
+        and customer satisfaction.
+      </p>
+
+      <h2>Features</h2>
+      <ul>
+        <li>Feature One: Reliable and fast service</li>
+        <li>Feature Two: 24/7 customer support</li>
+        <li>Feature Three: User-friendly interface</li>
+      </ul>
+
+      <h2>Get in Touch</h2>
+      <p>
+        We are always here to help. Feel free to reach out to us anytime at
+        <a href="mailto:mmcse19@gmail.com">Mail</a>
+      </p>
+
+      <img src="./img.webp" alt="" width="1440px" style="max-width: 100%;" />
+      <!-- <video style="width: 100vw; height: 100vh; object-fit: cover;" autoplay muted loop playsinline
+      src="https://res.cloudinary.com/dzopme5y0/video/upload/v1750066226/lrkwm4i3etphtovi6uc6.mp4">
+      Your browser does not support the video tag.
+    </video> -->
+
+      <button style="cursor: not-allowed;">Important Text</button>
+
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi
+        quae, repudiandae est culpa aperiam atque recusandae nihil ducimus eaque
+        officiis labore minus tempora mollitia nostrum a. Libero eum ab fuga?
+      </p>
+    </div>
+
+    <script>
+        window.onConsentGiven = (...args) => {
+          console.log(args);
+        }
+        window.datacops = (...args) => {
+          console.log(args);
+        }
+              setTimeout(() => {
+                ConsentManagerSDK.init({
+                  "_id": "680c0f5e244e3a426399f017",
+                  "app_id": "6800e8ea4ad96011954dd86c",
+                  "applyRegion": "eu",
+                  "regions": {
+                    "usa": {
+                      "enabled": false,
+                      "privacy_notice": {
+                      "description": {
+                      "en": "This is a USA variant of the consent manager!!"
+                    },
+                "policy_url": "https://hustlejar.com/privacy"
+              },
+              "opt_out_enabled": true
+            },
+            "eu": {
+              "enabled": true,
+              "privacy_notice": {
+                "description": {
+                  "en": "GDPR-compliant privacy notice. Give your consent to get better performance."
+                },
+                "policy_url": "https://hustlejar.com/privacy"
+              },
+              "iab_tcf_enabled": true
+            },
+            "global": {
+              "enabled": true,
+              "privacy_notice": {
+                "description": {
+                  "en": "General privacy notice"
+                },
+                "policy_url": "https://hustlejar.com/privacy"
+              }
+            }
+          },
+          "banner_config": {
+            "styles": {
+              "primaryColor": "#265200",
+              "borderRadius": 15,
+              "_id": "680c12f3244e3a426399f2ff"
+            },
+            "content": {
+              "title": {
+                "en": "We value your privacy"
+              },
+              "buttons": [
+                {
+                  "text": {
+                    "en": "Accept All"
+                  },
+                  "action": "accept_all",
+                  "_id": "680c0f5e244e3a426399f019"
+                },
+                {
+                  "text": {
+                    "en": "Reject All"
+                  },
+                  "action": "reject_all",
+                  "_id": "680c0f5e244e3a426399f01a"
+                },
+                {
+                  "text": {
+                    "en": "Save Preferences"
+                  },
+                  "action": "save_preferences",
+                  "_id": "680c0f5e244e3a426399f01b"
+                },
+                {
+                  "text": {
+                    "en": "Our Privacy Policy"
+                  },
+                  "action": "privacy_policy_text",
+                  "_id": "680c0f5e244e3a426399f01c"
+                },
+                {
+                  "text": {
+                    "en": "Configure Manually"
+                  },
+                  "action": "configure_manually",
+                  "_id": "680c0f5e244e3a426399f01d"
+                }
+              ]
+            },
+            "behavior": {
+              "auto_close": 0,
+              "strictly_necessary_locked": true
+            }
+          },
+          "created_at": "2025-04-25T22:40:30.519Z",
+          "updated_at": "2025-04-25T22:40:30.519Z",
+          "__v": 0,
+          "vendors": [
+            {
+              "_id": "680c0f97244e3a426399f086",
+              "app_id": "6800e8ea4ad96011954dd86c",
+              "__v": 0,
+              "cookies": [
+                {
+                  "_id": "680c0ff0244e3a426399f0cc",
+                  "name": "_cfuvid",
+                  "expiration": "-1",
+                  "description": {
+                    "en": ""
+                  }
+                }
+              ],
+              "description": {
+                "en": "dsfdsf"
+              },
+              "name": "sdfsd",
+              "privacy_policy_url": "sdfdsfs"
+            }
+          ],
+          "channels": [
+            {
+              "_id": "680c0f86244e3a426399f053",
+              "app_id": "6800e8ea4ad96011954dd86c",
+              "__v": 0,
+              "cookies": [],
+              "description": {
+                "en": "This is really essential cookie channel, vaiya please do not remove consent for this:("
+              },
+              "is_consent_required": true,
+              "is_essential": true,
+              "label": {
+                "en": "Functional"
+              },
+              "name": "functional",
+              "vendors": [
+                {
+                  "_id": "680c0f97244e3a426399f086",
+                  "app_id": "6800e8ea4ad96011954dd86c",
+                  "__v": 0,
+                  "cookies": [
+                    {
+                      "_id": "680c0ff0244e3a426399f0cc",
+                      "name": "_cfuvid",
+                      "expiration": "Session",
+                      "description": {
+                        "en": "Here above is a cookie set by Cloudflare to identify trusted web traffic."
+                      }
+                    },
+                    {
+                      "_id": "680c0ff0244e3a426399f0cc",
+                      "name": "_fpa",
+                      "expiration": "90days",
+                      "description": {
+                        "en": "Here above is a cookie set by Cloudflare to identify trusted web traffic."
+                      }
+                    },
+                  ],
+                  "description": {
+                    "en": "Another cookie set by Cloudflare to identify trusted web traffic."
+                  },
+                  "name": "Facebook",
+                  "privacy_policy_url": "https://www.facebook.com/policy.php"
+                }
+              ]
+            },
+
+            {
+              "_id": "680c0f86244e3a426399f053",
+              "app_id": "6800e8ea4ad96011954dd86c",
+              "__v": 0,
+              "cookies": [
+                {
+                  "_id": "680c0ff0244e3a426399f0ca",
+                  "name": "dcuid",
+                  "expiration": "365 days",
+                  "description": {
+                    "en": "Enek shomossa dhur miya tumi bujho na"
+                  }
+                },
+                {
+                  "_id": "680c0ff0244e3a426399f0ca",
+                  "name": "__9wyjhgfuy3",
+                  "expiration": "365 days",
+                  "description": {
+                    "en": "D ksbdfkjsbfjksdbfjsdbf ksbfsldfb lksabfla sljkbfgjh bsalkjfgbsjkadfbglks a"
+                  }
+                }
+              ],
+              "description": {
+                "en": "This is really essential cookie channel, vaiya please do not remove consent for this:("
+              },
+              "is_consent_required": true,
+              "is_essential": false,
+              "label": {
+                "en": "No channel bro"
+              },
+              "name": "no_channel_bro",
+              "vendors": [
+                {
+                  "_id": "680c0f97244e3a426399f086",
+                  "app_id": "6800e8ea4ad96011954dd86c",
+                  "__v": 0,
+                  "cookies": [
+                    {
+                      "_id": "680c0ff0244e3a426399f0cc",
+                      "name": "_cfuvid",
+                      "expiration": "Session",
+                      "description": {
+                        "en": "Here above is a cookie set by Cloudflare to identify trusted web traffic."
+                      }
+                    },
+                    {
+                      "_id": "680c0ff0244e3a426399f0cc",
+                      "name": "_fpa",
+                      "expiration": "90days",
+                      "description": {
+                        "en": "Here above is a cookie set by Cloudflare to identify trusted web traffic."
+                      }
+                    },
+                  ],
+                  "description": {
+                    "en": "Another cookie set by Cloudflare to identify trusted web traffic."
+                  },
+                  "name": "Facebook",
+                  "privacy_policy_url": "https://www.facebook.com/policy.php"
+                }
+              ]
+            },
+            {
+              "_id": "680c0f86244e3a426399f053",
+              "app_id": "6800e8ea4ad96011954dd86c",
+              "__v": 0,
+              "cookies": [
+                {
+                  "_id": "680c0ff0244e3a426399f0ca",
+                  "name": "dcuid",
+                  "expiration": "365 days",
+                  "description": {
+                    "en": "Enek shomossa dhur miya tumi bujho na"
+                  }
+                },
+                {
+                  "_id": "680c0ff0244e3a426399f0ca",
+                  "name": "__9wyjhgfuy3",
+                  "expiration": "365 days",
+                  "description": {
+                    "en": "D ksbdfkjsbfjksdbfjsdbf ksbfsldfb lksabfla sljkbfgjh bsalkjfgbsjkadfbglks a"
+                  }
+                }
+              ],
+              "description": {
+                "en": "This is really essential cookie channel, vaiya please do not remove consent for this:("
+              },
+              "is_consent_required": true,
+              "is_essential": true,
+              "label": {
+                "en": "No channel bro"
+              },
+              "name": "no_channel_bro",
+              "vendors": [
+                {
+                  "_id": "680c0f97244e3a426399f086",
+                  "app_id": "6800e8ea4ad96011954dd86c",
+                  "__v": 0,
+                  "cookies": [
+                    {
+                      "_id": "680c0ff0244e3a426399f0cc",
+                      "name": "_cfuvid",
+                      "expiration": "Session",
+                      "description": {
+                        "en": "Here above is a cookie set by Cloudflare to identify trusted web traffic."
+                      }
+                    },
+                    {
+                      "_id": "680c0ff0244e3a426399f0cc",
+                      "name": "_fpa",
+                      "expiration": "90days",
+                      "description": {
+                        "en": "Here above is a cookie set by Cloudflare to identify trusted web traffic."
+                      }
+                    },
+                  ],
+                  "description": {
+                    "en": "Another cookie set by Cloudflare to identify trusted web traffic."
+                  },
+                  "name": "Facebook",
+                  "privacy_policy_url": "https://www.facebook.com/policy.php"
+                }
+              ]
+            }
+
+          ]
+        });
+      }, 1000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+
+        let totalTimes = {
+            scrollTimes: {
+                last: 0,
+                sum: 0
+            },
+            keyDown: 0,
+            scroll: 0,
+            clicks: 0,
+        }
+          let activeTime = 0;
+
+          function handleUserActivity() {
+
+          }
+
+        // Listen for user activity (mouse, keyboard, and scroll events)
+        document.addEventListener("mousemove", handleUserActivity);
+        document.addEventListener("keydown", handleUserActivity);
+        document.addEventListener("scroll", handleUserActivity);
+        document.addEventListener("click", handleUserActivity);
+
+        // Track focus/blur to pause active time if the tab is not in view
+      //   window.addEventListener("blur", stopActivityTimer);
+        window.addEventListener("focus", handleUserActivity);
+
+
+        // Optionally log active time for demonstration
+        setInterval(() => {
+            console.log(`Active Time: ${activeTime} seconds`);
+        }, 5000);
+    </script>
+  </head>
+  <body></body>
+</html>

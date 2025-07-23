@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Events</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        
+        .setup-container {
+            width: 100%;
+            max-width: 800px;
+            background-color: white;
+            border-radius: 2px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* HEADER STYLES */
+        .header {
+            flex: 0 0 auto;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+            font-size: 22px;
+        }
+        
+        .title .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .finish-btn {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 18px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        
+        .tab-container {
+            display: flex;
+            padding: 15px 20px;
+            gap: 10px;
+        }
+        
+        .tab {
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 15px;
+            background-color: transparent;
+        }
+        
+        .tab.active {
+            background-color: white;
+            color: #4169e1;
+            border-color: #4169e1;
+        }
+        
+        .tab.inactive {
+            color: #aaa;
+        }
+        
+        /* BODY STYLES */
+        .body-content {
+            flex: 1 1 auto;
+            min-height: 360px;
+            overflow-y: auto;
+        }
+        
+        .empty-state {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            min-height: 400px;
+            color: #999;
+            font-size: 20px;
+            padding: 30px;
+        }
+        
+        .event-list {
+            padding: 20px;
+            display: none; /* Initially hidden */
+        }
+        
+        .event-item {
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #fafafa;
+        }
+        
+        /* FOOTER STYLES */
+        .footer {
+            flex: 0 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            gap: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .action-btn {
+            flex: 1;
+            background-color: #1e6bb8;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 15px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .icon {
+            font-size: 20px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="setup-container">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-top">
+                <div class="title">
+                    <span class="menu-icon">≡</span>
+                    <span>Setup Events</span>
+                </div>
+                <button class="finish-btn">
+                    <span>↪</span>
+                    <span>Finish Setup</span>
+                </button>
+            </div>
+            
+            <div class="tab-container">
+                <button class="tab active" data-tab="current-page">Event on this page</button>
+                <button class="tab inactive" data-tab="all-events">All Events</button>
+            </div>
+        </div>
+        
+        <!-- BODY -->
+        <div class="body-content" id="content-area">
+            <!-- Empty state message -->
+            <div class="empty-state" id="empty-state">
+                No events to show
+            </div>
+            
+            <!-- Event list container - initially hidden -->
+            <div class="event-list" id="event-list">
+                <!-- Events will be injected here -->
+            </div>
+        </div>
+        
+        <!-- FOOTER -->
+        <div class="footer">
+            <button class="action-btn" id="track-element-btn">
+                <span class="icon">+</span>
+                <span>Track an element</span>
+            </button>
+            <button class="action-btn" id="track-page-btn">
+                <span class="icon">📎</span>
+                <span>Track Page</span>
+            </button>
+            <button class="action-btn" id="search-element-btn">
+                <span>Search element by text</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching functionality
+            const tabs = document.querySelectorAll('.tab');
+            const contentArea = document.getElementById('content-area');
+            const emptyState = document.getElementById('empty-state');
+            const eventList = document.getElementById('event-list');
+            
+            // Sample data for demonstration
+            const events = {
+                'current-page': [],
+                'all-events': [
+                    { name: 'Click Button', selector: '#header-btn', type: 'click' },
+                    { name: 'Form Submit', selector: '#contact-form', type: 'submit' }
+                ]
+            };
+            
+            // Function to render content based on active tab and data
+            function renderContent(tabId) {
+                const tabEvents = events[tabId];
+                
+                // Clear event list
+                eventList.innerHTML = '';
+                
+                if (tabEvents.length === 0) {
+                    // Show empty state if no events
+                    emptyState.style.display = 'flex';
+                    eventList.style.display = 'none';
+                } else {
+                    // Show events and hide empty state
+                    emptyState.style.display = 'none';
+                    eventList.style.display = 'block';
+                    
+                    // Create event items
+                    tabEvents.forEach(event => {
+                        const eventElement = document.createElement('div');
+                        eventElement.className = 'event-item';
+                        eventElement.innerHTML = `
+                            <h3>${event.name}</h3>
+                            <p>Selector: ${event.selector}</p>
+                            <p>Type: ${event.type}</p>
+                        `;
+                        eventList.appendChild(eventElement);
+                    });
+                }
+            }
+            
+            // Tab click handlers
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Update active tab UI
+                    tabs.forEach(t => {
+                        t.classList.remove('active');
+                        t.classList.add('inactive');
+                    });
+                    this.classList.remove('inactive');
+                    this.classList.add('active');
+                    
+                    // Render appropriate content
+                    const tabId = this.getAttribute('data-tab');
+                    renderContent(tabId);
+                });
+            });
+            
+            // Button event handlers
+            document.getElementById('track-element-btn').addEventListener('click', function() {
+                // Example of adding a new event
+                const newEvent = {
+                    name: 'New Element Click',
+                    selector: '#new-element',
+                    type: 'click'
+                };
+                
+                // Get current active tab
+                const activeTab = document.querySelector('.tab.active').getAttribute('data-tab');
+                
+                // Add event to array
+                events[activeTab].push(newEvent);
+                
+                // Re-render content
+                renderContent(activeTab);
+            });
+            
+            document.getElementById('track-page-btn').addEventListener('click', function() {
+                alert('Page tracking enabled');
+            });
+            
+            document.getElementById('search-element-btn').addEventListener('click', function() {
+                const searchTerm = prompt('Enter text to search for:');
+                if (searchTerm) {
+                    alert(`Searching for elements containing: ${searchTerm}`);
+                }
+            });
+            
+            // Initial render - current page tab
+            renderContent('current-page');
+        });
+    </script>
+</body>
+</html>

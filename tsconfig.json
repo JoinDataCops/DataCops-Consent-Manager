@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "target": "ES5",
+    "removeComments": false,
+    "resolveJsonModule": true,
+    "importHelpers": true,
+    "noErrorTruncation": true,
+    "declaration": false,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true
+  },
+  "exclude": ["dist", "node_modules", "playground/dist"],
+  // It must include everything that Rollup will encounter,
+  // and preferably nothing else in order not to compile excess files
+  "include": ["src/index.ts", "src/**/*.d.ts", "consent-manager/*.d.ts", "./consent-manager/declarations.d.ts"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs",
+      "target": "es2021"
+    }
+  }
+}
