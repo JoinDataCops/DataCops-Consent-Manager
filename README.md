@@ -126,7 +126,7 @@ Report vulnerabilities via `SECURITY.md`.
 
 ## 🏷️ License
 
-MIT © [DataCops](https://trydatacops.com)
+MIT © [DataCops](https://joindatacops.com)
 
 ---
 
@@ -141,4 +141,4 @@ MIT © [DataCops](https://trydatacops.com)
 ## 📬 Community
 
 - [GitHub Issues](https://github.com/TryDataCops/DataCops-Consent-Manager/issues)  
-- [Email Support](mailto:dev@trydatacops.com)
+- [Email Support](mailto:dev@joindatacops.com)
